@@ -87,8 +87,8 @@ def delete_task(user_id, task_id):
 
 def get_tasks(user_id):
     try:
-        tasks = db.session.query(Tasks).filter(Tasks.user_id == user_id).order_by
-        (Tasks.priority.asc(), Tasks.date.asc()).all()
+        tasks = db.session.query(Tasks).filter(Tasks.user_id == user_id).order_by(
+            Tasks.priority.asc(), Tasks.date.asc()).all()
         return tasks
     except Exception as ex:
         print('error getting data')
