@@ -1,0 +1,77 @@
+import React, { Component } from 'react';
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
+import { Button, TextField } from '@material-ui/core';
+
+import { makeStyles } from '@material-ui/core/styles';
+
+const useStyles = makeStyles((theme) => ({
+  root: {
+    '& .MuiTextField-root': {
+      margin: theme.spacing(1),
+      width: 200,
+    },
+  },
+}));
+
+
+class TodoTasks extends Component {
+
+
+  
+
+  componentDidUpdate() {
+    this.props.inputElement.current.focus()
+  }
+
+  classes(){
+    return useStyles();
+  }
+  render() {
+    return (
+      <form  onSubmit={this.props.submit} noValidate autoComplete="off">
+      <div>
+        <TextField
+          id="outlined-error-helper-text"
+          label="Task name"
+          variant="outlined"
+          placeholder="Task name"
+          ref={this.props.inputElement}
+          value={this.props.currentItem.task_name}
+          onChange={this.props.handleInput}
+        />
+      </div>
+      <br/>
+      <div>
+        <TextField
+          id="outlined-error-helper-text"
+          label="Task priority"
+          variant="outlined"
+          placeholder="Task priority"
+          value={this.props.currentItem.priority}
+          onChange={this.props.handlePriority}
+          type="number"
+        />
+      </div>
+      <br/>
+      <div >
+        <DatePicker className="dateC" selected={this.props.currentItem.date}  dateFormat="yyyy-MM-dd"
+                        onChange={this.props.handleChangeDate} variant="outlined"/>
+        
+      </div>
+      <br/>
+      <div>
+          {this.props.editFlag
+            ?<>
+              <Button type="submit" variant="contained" color="primary" onClick={() => this.props.saveEdit()}>Edit task</Button>
+              <Button variant="contained" color="primary" onClick={() => this.props.cancel()}>Cancel</Button>
+              </>
+          : <Button variant="contained" color="primary" onClick={() => this.props.addItem()}>Add task</Button>
+        }
+      </div>
+
+    </form>
+    )
+  }
+}
+export default TodoTasks;
