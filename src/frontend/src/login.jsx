@@ -13,6 +13,8 @@ const styles = (theme) => ({
   },
 });
 
+const url = "http://localhost:5000";
+
 class LoginTab extends React.Component {
   constructor() {
     super();
@@ -39,7 +41,7 @@ class LoginTab extends React.Component {
 
     const auth = {username: this.state.username, password: this.state.password};
     axios
-      .post(`http://localhost:5000/api/v1/auth/login`, auth, {
+      .post(`${url}/api/v1/auth/login`, auth, {
         headers: {
           "Access-Control-Allow-Origin": "*",
         },

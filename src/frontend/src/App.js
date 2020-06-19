@@ -91,7 +91,7 @@ class App extends Component {
     const token = cookies.get("authToken");
 
     axios
-      .delete(`http://localhost:5000/api/v1/todos/${key}`, {
+      .delete(`${url}/api/v1/todos/${key}`, {
         headers: {
           Authorization: `Bearer ${token}`,
           "Access-Control-Allow-Origin": "*",
@@ -133,7 +133,7 @@ class App extends Component {
     const token = cookies.get("authToken");
 
     axios
-      .put(`http://localhost:5000/api/v1/todos/${newItem.id}`, newItem, {
+      .put(`${url}/api/v1/todos/${newItem.id}`, newItem, {
         headers: {
           Authorization: `Bearer ${token}`,
           "Access-Control-Allow-Origin": "*",
@@ -192,7 +192,7 @@ class App extends Component {
     const token = cookies.get("authToken");
 
     axios
-      .post(`http://localhost:5000/api/v1/todos`, newItem, {
+      .post(`${url}/api/v1/todos`, newItem, {
         headers: {
           Authorization: `Bearer ${token}`,
           "Access-Control-Allow-Origin": "*",

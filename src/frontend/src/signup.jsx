@@ -12,6 +12,8 @@ const styles = (theme) => ({
   },
 });
 
+const url = "http://localhost:5000";
+
 class SignUpTab extends React.Component {
   constructor() {
     super();
@@ -54,7 +56,7 @@ class SignUpTab extends React.Component {
     }
     const auth = {username: this.state.username, password: this.state.password};
     axios
-      .post(`http://localhost:5000/api/v1/auth/signup`, auth, {
+      .post(`${url}/api/v1/auth/signup`, auth, {
         headers: {
           "Access-Control-Allow-Origin": "*",
         },
