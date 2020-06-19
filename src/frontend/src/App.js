@@ -106,6 +106,7 @@ class App extends Component {
           this.setState({
             items: filteredItems,
             currentItem: {task_name: "", key: "", priority: "", date: ""},
+            edit: false,
           });
         }
       });

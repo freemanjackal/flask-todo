@@ -1,4 +1,4 @@
-from flask import jsonify, request as req
+from flask import jsonify, request as req, render_template
 from flask_restful import abort, Api, Resource
 import model
 from __init__ import app, JWT_SECRET_KEY
@@ -12,13 +12,7 @@ from flask_restful_swagger import swagger
 
 
 # api = Api(app)
-authorizations = {
-    'Bearer Auth': {
-        'type': 'apiKey',
-        'in': 'header',
-        'name': 'Authorization'
-    },
-}
+
 api = swagger.docs(Api(app), apiVersion='1')
 app.config['JWT_SECRET_KEY'] = JWT_SECRET_KEY
 app.config['CORS_HEADERS'] = 'Content-Type'
@@ -26,6 +20,14 @@ cors = CORS(app, resources={r"/api/v1/*": {"origins": "*"}})
 
 bcrypt = Bcrypt(app)
 jwt = JWTManager(app)
+
+
+@app.route('/')
+def home():
+    try:
+        return render_template('index.html')
+    except Exception:
+        return "No build found of the frontend project. Check installation steps."
 
 
 class Todo(Resource):
