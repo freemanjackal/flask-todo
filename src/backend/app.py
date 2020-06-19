@@ -19,7 +19,7 @@ authorizations = {
         'name': 'Authorization'
     },
 }
-api = swagger.docs(Api(app, security='Bearer Auth', authorizations=authorizations), apiVersion='1')
+api = swagger.docs(Api(app), apiVersion='1')
 app.config['JWT_SECRET_KEY'] = JWT_SECRET_KEY
 app.config['CORS_HEADERS'] = 'Content-Type'
 cors = CORS(app, resources={r"/api/v1/*": {"origins": "*"}})
