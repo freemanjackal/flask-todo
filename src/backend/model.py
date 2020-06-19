@@ -1,10 +1,13 @@
 from flask_sqlalchemy import SQLAlchemy
 from __init__ import app
 from flask_bcrypt import generate_password_hash, check_password_hash
+import os
 
+try:
+    app.config["SQLALCHEMY_DATABASE_URI"] = os.environ['DATABASE_URL']
+except Exception:
+    app.config["SQLALCHEMY_DATABASE_URI"] = 'mysql://root:root@localhost/todo'
 
-# app.config["SQLALCHEMY_DATABASE_URI"] = os.environ['DATABASE_URL']
-app.config["SQLALCHEMY_DATABASE_URI"] = 'mysql://root:root@localhost/todo'
 
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 db = SQLAlchemy()

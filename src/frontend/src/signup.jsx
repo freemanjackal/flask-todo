@@ -2,6 +2,7 @@ import React from "react";
 import {Paper, withStyles, Grid, TextField, Button} from "@material-ui/core";
 import {Face, Fingerprint} from "@material-ui/icons";
 import axios from "axios";
+import url from "./config";
 
 const styles = (theme) => ({
   margin: {
@@ -12,7 +13,7 @@ const styles = (theme) => ({
   },
 });
 
-const url = "http://localhost:5000";
+//const url = "http://localhost:5000";
 
 class SignUpTab extends React.Component {
   constructor() {

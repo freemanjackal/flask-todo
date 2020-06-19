@@ -6,8 +6,9 @@ import axios from "axios";
 import AuthTabs from "./tab";
 import Cookies from "universal-cookie";
 import PropTypes from "prop-types";
+import url from "./config";
 
-const url = "http://localhost:5000";
+//const url = "http://localhost:5000";
 
 class App extends Component {
   constructor() {
@@ -148,6 +149,7 @@ class App extends Component {
 
           this.setState({
             currentItem: {task_name: "", key: "", priority: "", date: ""},
+            edit: false,
           });
         }
       });
