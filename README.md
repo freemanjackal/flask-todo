@@ -18,6 +18,7 @@
     - > yarn start 
     
      (it will start a development server)
+- it is configured to connect to backend server at `localhost:5000`, to change this modify the url in `config.js` to point to your server
 
 ### Frontend linting and local code formating
 - It is configured with husky and prettier so that in every commit linting is checked.
