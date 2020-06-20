@@ -3,10 +3,13 @@
 ### Installation steps
 - Create a virtual environment(recommended)
 -  > pip install -r requirements.txt
-- You would need a mysql database named "todos"
+- You will need a mysql database named "todos" (you may use a postgreSql database but need to make a few changes and install the respective python package for postgre connection).
   - Change in model.py *app.config["SQLALCHEMY_DATABASE_URI"]* with your own connection info.(The best approach is to have this configured in an env variable)
-  - run python model.py, it will create the database tables needed by the project.
-  - Configure a server to expose the api, you could use the builtin flask server for testing porpuses.
+  - run `python model.py`, it will create the database tables needed by the project.
+  - Configure a server to expose the api, you could use the builtin flask server for testing porpuses, after activating the virtual environemnt. 
+    - > python app.py
+    
+    this will launch flask development server running by default at port 5000
 ### Local checks
 - flake8 is used to check the code linting
 
@@ -18,6 +21,7 @@
     - > yarn start 
     
      (it will start a development server)
+- it is configured to connect to backend server at `localhost:5000`, to change this modify the url in `config.js` to point to your server
 
 ### Frontend linting and local code formating
 - It is configured with husky and prettier so that in every commit linting is checked.
@@ -36,4 +40,5 @@
 - Change api docs flask-restful-swagger for a more complete and powerful swagger(open api) compliant package.
 - Include token authorization in docs to test api endpoints.
 - Generate postman collection to test endpoints.
-- Include code tests for backend and forntend.
+- Include code tests for backend and frontend.
+- Add all missing validations.
