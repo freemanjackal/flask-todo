@@ -40,5 +40,5 @@
 - Change api docs flask-restful-swagger for a more complete and powerful swagger(open api) compliant package.
 - Include token authorization in docs to test api endpoints.
 - Generate postman collection to test endpoints.
-- Include code tests for backend and forntend.
+- Include code tests for backend and frontend.
 - Add all missing validations.
