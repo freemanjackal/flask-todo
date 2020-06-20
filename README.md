@@ -41,3 +41,4 @@
 - Include token authorization in docs to test api endpoints.
 - Generate postman collection to test endpoints.
 - Include code tests for backend and forntend.
+- Add all missing validations.
