@@ -47,6 +47,9 @@ class Todo(Resource):
     @cross_origin()
     def put(self, task_id):
         # args = req.form
+        """
+        Just priority and date can be changed
+        """
         args = req.get_json(force=True)
 
         priority = args.get('priority') if args.get('priority') else None

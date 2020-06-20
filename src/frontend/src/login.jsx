@@ -3,6 +3,7 @@ import {Paper, withStyles, Grid, TextField, Button} from "@material-ui/core";
 import {Face, Fingerprint} from "@material-ui/icons";
 import axios from "axios";
 import Cookies from "universal-cookie";
+import url from "./config";
 
 const styles = (theme) => ({
   margin: {
@@ -13,7 +14,7 @@ const styles = (theme) => ({
   },
 });
 
-const url = "http://localhost:5000";
+//const url = "http://localhost:5000";
 
 class LoginTab extends React.Component {
   constructor() {
