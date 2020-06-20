@@ -3,10 +3,13 @@
 ### Installation steps
 - Create a virtual environment(recommended)
 -  > pip install -r requirements.txt
-- You would need a mysql database named "todos"
+- You will need a mysql database named "todos"
   - Change in model.py *app.config["SQLALCHEMY_DATABASE_URI"]* with your own connection info.(The best approach is to have this configured in an env variable)
-  - run python model.py, it will create the database tables needed by the project.
+  - run `python model.py`, it will create the database tables needed by the project.
   - Configure a server to expose the api, you could use the builtin flask server for testing porpuses.
+    - > python app.py
+    
+    this will launch flask development server running by default at port 5000
 ### Local checks
 - flake8 is used to check the code linting
 
