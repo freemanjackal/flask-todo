@@ -3,9 +3,11 @@ from flask_jwt_extended import create_access_token
 from model import User, db, get_user
 from flask_restful import Resource
 import datetime
+from flask_cors import CORS, cross_origin
 
 
 class SignupApi(Resource):
+    @cross_origin(origin='*', headers=['Content-Type', 'Authorization'])
     def post(self):
         body = request.get_json(force=True)
         user = User(**body)

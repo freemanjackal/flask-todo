@@ -30,6 +30,11 @@ def home():
         return "No build found of the frontend project. Check installation steps."
 
 
+@app.route('/test')
+def test():
+    return "Working test."
+
+
 class Todo(Resource):
     @swagger.operation(notes="Delete a todo item by ID",)
     @jwt_required
@@ -154,4 +159,4 @@ api.add_resource(LoginApi, '/api/v1/auth/login')
 
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(host='0.0.0.0', debug=True)
