@@ -1,0 +1,24 @@
+version: '3.7'
+
+services:
+  web:
+    build: ./backend
+    command: python app.py run -h 0.0.0.0
+    #volumes:
+    #  - ./services/web/:/usr/src/app/
+    ports:
+      - 5000:5000
+    env_file:
+      - ./backend/.env.dev
+    depends_on:
+      - db
+  db:
+    image: mysql:5.7
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      #- MYSQL_USER=user
+      #- MYSQL_PASSWORD=user123
+      - MYSQL_DATABASE=todo
+    #env_file:
+    #  - ./.env.dev
+  #web-frontend: ./frontend 
