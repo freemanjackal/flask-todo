@@ -3,11 +3,16 @@
 ### Installation steps
 - Create a virtual environment(recommended)
 -  > pip install -r requirements.txt
-- You will need a mysql database named "todos" (you may use a postgreSql database but need to make a few changes and install the respective python package for postgre connection).
+- You will need a mysql database named "todos" (you may use a postgreSql database but need to make a few changes and install the respective python package for postgres connection). 
   - Change in model.py *app.config["SQLALCHEMY_DATABASE_URI"]* with your own connection info.(The best approach is to have this configured in an env variable)
   - run `python model.py`, it will create the database tables needed by the project.
   - Configure a server to expose the api, you could use the builtin flask server for testing porpuses, after activating the virtual environemnt. 
     - > python app.py
+    
+    #### Dockerized backend
+    - The python backend and a mysql database are dockerized
+    - Install docker and docker-composer
+    - Run  `docker-compose build` ... after that `docker-compose up -d` ... this will run a flask development server, install mysql and create database *"todo"* ... just need to follow the frontend installation steps and everything would be ready to test. create an user, login... 
     
     this will launch flask development server running by default at port 5000
 ### Local checks
