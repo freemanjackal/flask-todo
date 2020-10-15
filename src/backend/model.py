@@ -2,6 +2,8 @@ from flask_sqlalchemy import SQLAlchemy
 from __init__ import app
 from flask_bcrypt import generate_password_hash, check_password_hash
 import os
+import sqlite3
+
 
 try:
     app.config["SQLALCHEMY_DATABASE_URI"] = os.environ["DATABASE_URL"]
@@ -10,8 +12,16 @@ except Exception:
 
 
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
+
 db = SQLAlchemy()
 db.init_app(app)
+
+def initialize(test=None):
+    if test:
+        apps = test
+        test.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
+        test.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///foos.db"
+        db.init_app(test)
 
 
 class User(db.Model):
@@ -104,6 +114,10 @@ def update_task(priority, date, task_id, user_id):
         return True
     return False
 
+def clear_db():
+    with app.app_context():
+        db.drop_all()
+    
 
 if __name__ == "__main__":
 

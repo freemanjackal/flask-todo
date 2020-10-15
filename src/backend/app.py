@@ -92,6 +92,7 @@ class TodoList(Resource):
         """
         Get list of todo tasks
         """
+        print("entrass")
         user_id = get_jwt_identity()
         tasks = model.get_tasks(user_id)
         return jsonify(tasks_to_json(tasks))
