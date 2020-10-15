@@ -1,4 +1,4 @@
-# Flask Todos app
+# Flask Todo app
 ## Description
 The project is a simple TODO app where a user can create an account, and after login, it can create tasks with a name, priority and date. Tasks can be edited and deleted. Just the fields priority and date are editable. Tasks are sorted by their priority and date. The front-end is developed in React and the backend in Flask. There were developed some tests using Pytest. It is possible to create and deploy a docker image for the backend.
 ## Backend Flask
