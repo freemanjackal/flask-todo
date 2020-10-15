@@ -50,6 +50,17 @@ def test_login_after_signup(client):
     response = login(client)
     assert response.status_code == 200
 
+def test_get_tasks(client):
+    sign_up(client)
+    response = login(client)
+    token = json.loads(response.get_data())
+    header = {
+      "Authorization": "Bearer {}".format(token["token"]),
+      "Access-Control-Allow-Origin": "*"
+    }
+    response = client.get("/api/v1/todos", headers=header)
+    assert response.status_code == 200
+
 
 def sign_up(client):
     data_signup = {
