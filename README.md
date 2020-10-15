@@ -8,7 +8,7 @@ The project is a simple TODO app where a user can create an account, and after l
 - You will need a mysql database named "todo" (you may use a postgreSql database but need to make a few changes and install the respective python package for postgres connection). 
   - Change in model.py *app.config["SQLALCHEMY_DATABASE_URI"]* with your own connection info.(The best approach is to have this configured in an env variable)
   - run `python model.py`, it will create the database tables needed by the project.
-  - Configure a server to expose the api, you could use the builtin flask server for testing porpuses, after activating the virtual environemnt. 
+  - Configure a server to expose the api, you could use the builtin flask server for testing purposes, after activating the virtual environemnt. 
     - > python app.py
     
     #### Dockerized backend
